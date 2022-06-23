@@ -67,7 +67,7 @@ with open(file_to_load) as election_data:
         if county_name not in county_options:
 
             # 4b: Add the existing county to the list of counties.
-            county_name.append(county_name)
+            county_name.append(county_options)
 
             # 4c: Begin tracking the county's vote count.
             county_votes[county_name] = 0
@@ -144,13 +144,13 @@ with open(file_to_save, "w") as txt_file:
             winning_percentage = vote_percentage
 
     # Print the winning candidate (to terminal)
-        winning_candidate_summary = (
-            f"-------------------------\n"
-            f"Winner: {winning_candidate}\n"
-            f"Winning Vote Count: {winning_count:,}\n"
-            f"Winning Percentage: {winning_percentage:.1f}%\n"
-            f"-------------------------\n")
-        print(winning_candidate_summary)
+    winning_candidate_summary = (
+        f"-------------------------\n"
+        f"Winner: {winning_candidate}\n"
+        f"Winning Vote Count: {winning_count:,}\n"
+        f"Winning Percentage: {winning_percentage:.1f}%\n"
+        f"-------------------------\n")
+    print(winning_candidate_summary)
 
-            # Save the winning candidate's name to the text file
+                    # Save the winning candidate's name to the text file
     txt_file.write(winning_candidate_summary)
