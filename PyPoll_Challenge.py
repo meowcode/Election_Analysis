@@ -6,7 +6,7 @@ import csv
 import os
 
 # Add a variable to load a file from a path.
-file_to_load = os.path.join("..", "Resources", "election_results.csv")
+file_to_load = os.path.join("Resources", "election_results.csv")
 # Add a variable to save the file to a path.
 file_to_save = os.path.join("analysis", "election_result.txt")
 
@@ -67,7 +67,7 @@ with open(file_to_load) as election_data:
         if county_name not in county_options:
 
             # 4b: Add the existing county to the list of counties.
-            county_name.append(county_options)
+            county_options.append(county_name)
 
             # 4c: Begin tracking the county's vote count.
             county_votes[county_name] = 0
@@ -103,12 +103,12 @@ with open(file_to_save, "w") as txt_file:
         print(county_results)
 
          # 6e: Save the county votes to a text file.
-        txt_file.write(county_results)
+    txt_file.write(county_results)
 
          # 6f: Write an if statement to determine the winning county and get its vote count.
-        if (vote_count > winning_count):
-            winning_count = county_votes
-            largest_county_turnout = county_name
+    if (vote_count > winning_count):
+        winning_count = county_votes
+        largest_county_turnout = county_name
 
     # 7: Print the county with the largest turnout to the terminal.
     largest_county_results = (
